@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoMenuSharp } from "react-icons/io5";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="flex justify-between items-center px-6 py-8  md:px-32 bg-vrgrayDark drop-shadow-md text-vrtextDark transition-all">
+    <header className="relative flex justify-between items-center px-6 py-8 md:px-32 bg-vrgrayDark drop-shadow-md text-vrtextDark transition-all z-50">
       {/* logo  */}
       <NavLink
         to="/"
-        className={`relative font-extrabold tracking-wider uppercase hover:scale-105 hover:text-vrgreen hover:duration-300 hover:ease-in-out text-2xl md:text-xl  text-vrgreenDark 
+        className={`relative font-extrabold tracking-wider uppercase hover:scale-105 hover:text-vrgreen hover:duration-300 hover:ease-in-out text-xl md:text-2xl  text-vrgreenDark 
           `}
       >
         TrackFinn
@@ -36,7 +36,7 @@ const Navbar = () => {
             }`
           }
         >
-          trains
+          Trains
         </NavLink>
       </ul>
 
@@ -49,10 +49,10 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`absolute xl:hidden top-24 left-0 w-full pb-2 bg-vrgrayDark flex flex-col items-center gap-4 font-semibold text-lg transfrom transition-transform ${
-          isMenuOpen ? "opacity-100" : "opacity-0"
-        } `}
-        style={{ transition: "transfrom 0.3s ease, opacity 0.3s ease " }}
+        className={`absolute xl:hidden top-24 left-0 w-full pb-2 bg-vrgrayDark flex flex-col items-center gap-4 font-semibold text-lg z-50 transform transition-transform ${
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        style={{ transition: "transform 0.3s ease, opacity 0.3s ease" }}
       >
         <NavLink
           to="/"

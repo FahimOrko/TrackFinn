@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Trainimg from "/Trainimg.jpeg";
+import HeaderText from "./HeaderText";
+import ParaText from "./ParaText";
 
 const HomePageHero = () => {
   return (
@@ -8,13 +10,12 @@ const HomePageHero = () => {
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-8 px-6 py-10 h-[80vh]">
         {/* Left Section: Text Content */}
         <div className="flex flex-col justify-center items-center md:items-start gap-6 max-w-[300px] md:max-w-[550px] text-center md:text-left">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-vrgreen">
-            Track Trains in Real-Time
-          </h1>
-          <p className="text-sm md:text-base leading-loose text-vrtextDark">
+          <HeaderText>Track Trains in Real-Time</HeaderText>
+          <ParaText>
             Stay updated with the latest train information on routes across
             Finland.
-          </p>
+          </ParaText>
+
           <Link
             to="/trains"
             className="px-6 py-3 bg-vrgreenDark hover:bg-vrgreenHover text-vrtextDark font-bold rounded-md w-full sm:w-auto flex justify-center items-center transition-all duration-300 ease-in-out"
