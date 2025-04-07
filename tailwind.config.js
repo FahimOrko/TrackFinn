@@ -3,7 +3,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      backgroundImage: { "train-img": "url('./Trainimg.jpeg')" },
+      backgroundImage: {
+        "train-img": "url('./Trainimg.jpeg')",
+        "train-img-2": "url('./Trainimg2.jpeg')",
+        "train-img-3": "url('./Trainimg3.jpeg')",
+      },
       colors: {
         // Primary greens
         vrgreen: "#7AC143", // Main accent

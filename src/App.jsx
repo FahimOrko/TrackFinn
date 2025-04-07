@@ -3,15 +3,18 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Home from "./pages/Home";
 import Trains from "./pages/Trains";
+import Error from "./components/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <Error />,
   },
   {
     path: "/trains",
     element: <Trains />,
+    errorElement: <Error />,
   },
 ]);
 
