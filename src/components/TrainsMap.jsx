@@ -2,6 +2,7 @@ import React from "react";
 import useTrainData from "../services/getAllTrains";
 import AllTrainsMap from "./AllTrainsMap";
 import Spinner from "./Spinner";
+import Error from "./Error";
 
 const TrainsMap = () => {
   // data
@@ -9,17 +10,18 @@ const TrainsMap = () => {
 
   if (isLoading)
     return (
-      <div className="h-[65dvh] w-full flex items-center justify-center">
+      <section className="h-[65dvh] w-full flex items-center justify-center">
         <Spinner />
-      </div>
+      </section>
     );
   if (isError)
     return (
-      <div className="h-[65dvh] w-full flex items-center justify-center">
+      <section className="h-[65dvh] w-full flex items-center justify-center">
         <Error />
-      </div>
+      </section>
     );
-  return <AllTrainsMap data={data} />;
+
+  if (!isLoading && !isError) return <AllTrainsMap data={data} />;
 };
 
 export default TrainsMap;

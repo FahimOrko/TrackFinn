@@ -14,9 +14,9 @@ function NotFound() {
       <main className="w-full h-fit mt-20 flex flex-col justify-center items-center text-center  gap-8 px-8">
         <HeaderText>Something went wrong 😢</HeaderText>
         <ParaText>{error.data || error.message}</ParaText>
-        <button onClick={() => navigate("/")}>
+        <div onClick={() => navigate("/")}>
           <BackButton>&larr; Go back to Home Page</BackButton>
-        </button>
+        </div>
       </main>
     </section>
   );

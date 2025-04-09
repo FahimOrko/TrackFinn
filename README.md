@@ -8,7 +8,13 @@ Live Website - Cooming Soon
 
 - Home Page: Displays general information about the website with a full-height hero section, text, and an image. Users can click a button to navigate to the train details page.
 
-- Train Details Page: Shows a map with currently running trains. Includes a search form to allow users to find specific trains by type and number.
+- Train Details Page:
+
+  - Interactive map showing all currently running long-distance VR trains in Finland.
+
+  - Search functionality where users can enter a train number, type, and departure date to fetch full timetable and status.
+
+  - If the train is currently running, its live location is shown on the map, updated in real time.
 
 - Live Map with Real-Time Data: Fetches data from the official VR API using React Query and displays train positions live on the map.
 
@@ -23,6 +29,10 @@ Live Website - Cooming Soon
 - Routing: React Router
 
 - Data Fetching: React Query
+
+- Form Management: Formik
+
+- Validation: Yup
 
 - Map Rendering: Mapbox GL JS
 
