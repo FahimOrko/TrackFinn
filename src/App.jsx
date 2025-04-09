@@ -5,21 +5,35 @@ import Home from "./pages/Home";
 import Trains from "./pages/Trains";
 import Error from "./components/Error";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <Error />,
+    },
+    {
+      path: "/trains",
+      element: <Trains />,
+      errorElement: <Error />,
+    },
+  ],
   {
-    path: "/",
-    element: <Home />,
-    errorElement: <Error />,
-  },
-  {
-    path: "/trains",
-    element: <Trains />,
-    errorElement: <Error />,
-  },
-]);
+    future: {
+      v7_relativeSplatPath: true,
+    },
+  }
+);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <RouterProvider
+      router={router}
+      future={{
+        v7_startTransition: true,
+      }}
+    />
+  );
 }
 
 export default App;

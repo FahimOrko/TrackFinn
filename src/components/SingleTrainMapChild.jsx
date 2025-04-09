@@ -29,12 +29,14 @@ const SingleTrainMapChild = ({ newItem, lng, lat }) => {
   return (
     <>
       <div className="h-full w-full map-container" ref={mapContainerRef} />
-      <Marker
-        key={newItem.trainNumber}
-        map={mapRef.current}
-        item={newItem}
-        isActive={false}
-      />
+      {mapIsLoaded && (
+        <Marker
+          key={newItem.trainNumber}
+          map={mapRef.current}
+          item={newItem}
+          isActive={false}
+        />
+      )}
     </>
   );
 };
