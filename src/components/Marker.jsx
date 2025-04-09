@@ -7,12 +7,11 @@ const Marker = ({ map, item, isActive, onClick }) => {
   const contentRef = useRef(document.createElement("div"));
 
   //   itme data
-  const speed = item?.trainLocations[0].speed;
+
   const lng = item?.trainLocations[0].location[0];
   const lat = item?.trainLocations[0].location[1];
   const trainNum = item?.trainNumber;
   const trainName = item?.trainType.name;
-  const trainType = item?.trainType.trainCategory.name;
 
   useEffect(() => {
     markerRef.current = new mapboxgl.Marker(contentRef.current)

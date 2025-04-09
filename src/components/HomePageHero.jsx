@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import Trainimg from "/Trainimg.jpeg";
 import HeaderText from "./HeaderText";
 import ParaText from "./ParaText";
+import Button from "./Button";
 
 const HomePageHero = () => {
   return (
@@ -16,12 +17,9 @@ const HomePageHero = () => {
             Finland.
           </ParaText>
 
-          <Link
-            to="/trains"
-            className="px-6 py-3 bg-vrgreenDark hover:bg-vrgreenHover text-vrtextDark font-bold rounded-md w-full sm:w-auto flex justify-center items-center transition-all duration-300 ease-in-out"
-          >
-            <p className="uppercase">See Current Trains</p>
-          </Link>
+          <Button to="/trains">
+            <p>See Current Trains</p>
+          </Button>
         </div>
 
         {/* Right Section: Image */}

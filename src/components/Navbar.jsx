@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoMenuSharp } from "react-icons/io5";
+import { motion } from "motion/react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ const Navbar = () => {
       {/* logo  */}
       <NavLink
         to="/"
-        className={`relative font-extrabold tracking-wider uppercase hover:scale-105 hover:text-vrgreen hover:duration-300 hover:ease-in-out text-xl md:text-2xl  text-vrgreenDark 
+        className={`relative font-extrabold tracking-wider uppercase hover:scale-105 hover:text-vrgreenHover hover:duration-300 hover:ease-in-out text-xl md:text-2xl  text-vrgreen 
           `}
       >
         TrackFinn
@@ -18,26 +19,30 @@ const Navbar = () => {
 
       {/* links for big screens  */}
       <ul className="hidden xl:flex items-center gap-4 font-semibold text-base tracking-wide">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            `p-3 tracking-wide rounded-md font-bold uppercase hover:scale-105 text-vrtextDark hover:bg-vrgreenHover hover:duration-300 hover:ease-in-out text-base md:text-lg ${
-              isActive && "bg-vrgreenDark"
-            }`
-          }
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/trains"
-          className={({ isActive }) =>
-            `p-3 tracking-wide rounded-md font-bold uppercase hover:scale-105 text-vrtextDark hover:bg-vrgreenHover hover:duration-300 hover:ease-in-out text-base md:text-lg ${
-              isActive && "bg-vrgreenDark"
-            }`
-          }
-        >
-          Trains
-        </NavLink>
+        <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `p-3 tracking-wide rounded-md font-bold uppercase text-vrtextDark hover:bg-vrgreenHover hover:duration-300 hover:ease-in-out text-base md:text-lg ${
+                isActive && "bg-vrgreenDark"
+              }`
+            }
+          >
+            Home
+          </NavLink>
+        </motion.button>
+        <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <NavLink
+            to="/trains"
+            className={({ isActive }) =>
+              `p-3 tracking-wide rounded-md font-bold uppercase text-vrtextDark hover:bg-vrgreenHover hover:duration-300 hover:ease-in-out text-base md:text-lg ${
+                isActive && "bg-vrgreenDark"
+              }`
+            }
+          >
+            Trains
+          </NavLink>
+        </motion.button>
       </ul>
 
       {/* links for small screens  */}
