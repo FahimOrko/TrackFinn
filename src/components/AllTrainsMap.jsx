@@ -36,7 +36,6 @@ const AllTrainsMap = ({ data }) => {
 
   return (
     <>
-      <div className="h-[65dvh] w-full map-container" ref={mapContainerRef} />
       {mapIsLoaded &&
         mapRef?.current &&
         trainsData?.map((item) => {
@@ -53,6 +52,7 @@ const AllTrainsMap = ({ data }) => {
       {mapIsLoaded && mapRef?.current && (
         <Popup map={mapRef.current} activeItem={activeItem} />
       )}
+      <div className="h-[65dvh] w-full map-container" ref={mapContainerRef} />
     </>
   );
 };
