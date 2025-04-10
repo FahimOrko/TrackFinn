@@ -2,7 +2,7 @@
 
 A web application that provides live tracking information for trains in Finland. The app allows users to see currently running trains on a map, search for trains by type and number, and view real-time train details, including location and status.
 
-## [Live Website](https://track-finn.vercel.app/)
+### [Live Website](https://track-finn.vercel.app/)
 
 ---
 
