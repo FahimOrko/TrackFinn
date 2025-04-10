@@ -1,11 +1,12 @@
+// src/components/Marker.js
 import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 
 const Marker = ({ map, item, isActive, onClick }) => {
   const markerRef = useRef();
 
-  const lng = item?.trainLocations[0]?.location[0];
-  const lat = item?.trainLocations[0]?.location[1];
+  const lng = item?.trainLocations?.[0]?.location?.[0];
+  const lat = item?.trainLocations?.[0]?.location?.[1];
   const trainNum = item?.trainNumber;
   const trainName = item?.trainType?.name;
 
@@ -20,9 +21,11 @@ const Marker = ({ map, item, isActive, onClick }) => {
     el.innerText = `${trainName}-${trainNum}`;
     el.addEventListener("click", () => onClick(item));
 
-    markerRef.current = new mapboxgl.Marker(el)
-      .setLngLat([lng, lat])
-      .addTo(map);
+    if (map.isStyleLoaded()) {
+      markerRef.current = new mapboxgl.Marker(el)
+        .setLngLat([lng, lat])
+        .addTo(map);
+    }
 
     return () => {
       markerRef.current?.remove();

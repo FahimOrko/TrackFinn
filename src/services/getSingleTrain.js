@@ -61,9 +61,9 @@ const fetchSingleTrain = async ({ queryKey }) => {
 
   try {
     const response = await client.request(query, variables);
-    return response.trainsByDepartureDate[0]; // Ensure you're accessing the correct train
+    return response.trainsByDepartureDate[0];
   } catch (error) {
-    throw new Error("Error fetching train data: " + error.message); // Handle error properly
+    throw new Error("Error fetching train data: " + error.message);
   }
 };
 
