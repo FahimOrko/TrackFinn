@@ -1,12 +1,9 @@
 import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
-import { createPortal } from "react-dom";
 
 const Marker = ({ map, item, isActive, onClick }) => {
   const markerRef = useRef();
-  const contentRef = useRef(document.createElement("div"));
-
-  //   itme data
+  const elRef = useRef(document.createElement("div"));
 
   const lng = item?.trainLocations[0].location[0];
   const lat = item?.trainLocations[0].location[1];
@@ -14,32 +11,29 @@ const Marker = ({ map, item, isActive, onClick }) => {
   const trainName = item?.trainType.name;
 
   useEffect(() => {
-    markerRef.current = new mapboxgl.Marker(contentRef.current)
+    if (!lng || !lat) return;
+
+    const el = elRef.current;
+
+    el.className = `flex items-center justify-center px-2 py-2 rounded-full border-4 text-sm font-bold cursor-pointer transition-colors ${
+      isActive
+        ? "bg-vrgrayDark text-vrgray border-vrgreenDark"
+        : "bg-vrgray text-vrgrayDark border-vrgreenDark"
+    }`;
+
+    el.innerText = `${trainName}-${trainNum}`;
+    el.onclick = () => onClick(item);
+
+    markerRef.current = new mapboxgl.Marker(el)
       .setLngLat([lng, lat])
       .addTo(map);
 
     return () => {
-      markerRef.current.remove();
+      markerRef.current?.remove();
     };
-  }, [lng, lat, map]);
+  }, [map, lng, lat, item, isActive, onClick, trainName, trainNum]);
 
-  return (
-    <>
-      {createPortal(
-        <div
-          onClick={() => onClick(item)}
-          className={`flex items-center justify-center px-2 py-2 rounded-full  border-4 border-vrgreenDark  text-sm font-bold ${
-            isActive
-              ? " bg-vrgrayDark text-vrgray"
-              : "  bg-vrgray text-vrgrayDark"
-          }`}
-        >
-          {trainName + "-" + trainNum}
-        </div>,
-        contentRef.current
-      )}
-    </>
-  );
+  return null; // No JSX, since it's all DOM-based now
 };
 
 export default Marker;
