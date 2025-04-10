@@ -6,17 +6,24 @@ import Trains from "./pages/Trains";
 import Error from "./components/Error";
 import AppLayout from "./components/AppLayout";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <AppLayout />,
+      errorElement: <Error />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "trains", element: <Trains /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <AppLayout />,
-    errorElement: <Error />,
-    children: [
-      { index: true, element: <Home /> },
-      { path: "trains", element: <Trains /> },
-    ],
-  },
-]);
+    future: {
+      v7_relativeSplatPath: true,
+    },
+  }
+);
 
 function App() {
   return (
