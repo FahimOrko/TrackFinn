@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import Marker from "./Marker";
-import Popup from "./Popup";
 
 const mapbox_api = import.meta.env.VITE_MAPBOX_API_KEY;
 
@@ -13,23 +12,29 @@ const SingleTrainMapChild = ({ newItem, lng, lat }) => {
 
   useEffect(() => {
     mapboxgl.accessToken = mapbox_api;
-    mapRef.current = new mapboxgl.Map({
+
+    const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/nutshell4122/cm973h8c900eq01qlejc57zh6",
-      center: [lng, lat], // starting position [lng, lat]
-      zoom: 6, // starting zoom
+      center: [lng, lat],
+      zoom: 6,
+    });
+
+    mapRef.current = map;
+
+    map.on("load", () => {
+      setMapIsLoaded(true);
     });
 
     return () => {
-      setMapIsLoaded(true);
-      mapRef.current.remove();
+      map.remove();
     };
   }, [lng, lat]);
 
   return (
     <>
       <div className="h-full w-full map-container" ref={mapContainerRef} />
-      {mapIsLoaded && (
+      {mapIsLoaded && mapRef.current && (
         <Marker
           key={newItem.trainNumber}
           map={mapRef.current}

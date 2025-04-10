@@ -3,26 +3,22 @@ import mapboxgl from "mapbox-gl";
 
 const Marker = ({ map, item, isActive, onClick }) => {
   const markerRef = useRef();
-  const elRef = useRef(document.createElement("div"));
 
-  const lng = item?.trainLocations[0].location[0];
-  const lat = item?.trainLocations[0].location[1];
+  const lng = item?.trainLocations[0]?.location[0];
+  const lat = item?.trainLocations[0]?.location[1];
   const trainNum = item?.trainNumber;
-  const trainName = item?.trainType.name;
+  const trainName = item?.trainType?.name;
 
   useEffect(() => {
-    if (!lng || !lat) return;
+    if (!map || !lng || !lat) return;
 
-    const el = elRef.current;
-
-    el.className = `flex items-center justify-center px-2 py-2 rounded-full border-4 text-sm font-bold cursor-pointer transition-colors ${
-      isActive
-        ? "bg-vrgrayDark text-vrgray border-vrgreenDark"
-        : "bg-vrgray text-vrgrayDark border-vrgreenDark"
+    const el = document.createElement("div");
+    el.className = `flex items-center justify-center px-2 py-2 rounded-full border-4 border-vrgreenDark text-sm font-bold ${
+      isActive ? "bg-vrgrayDark text-vrgray" : "bg-vrgray text-vrgrayDark"
     }`;
 
     el.innerText = `${trainName}-${trainNum}`;
-    el.onclick = () => onClick(item);
+    el.addEventListener("click", () => onClick(item));
 
     markerRef.current = new mapboxgl.Marker(el)
       .setLngLat([lng, lat])
@@ -31,9 +27,9 @@ const Marker = ({ map, item, isActive, onClick }) => {
     return () => {
       markerRef.current?.remove();
     };
-  }, [map, lng, lat, item, isActive, onClick, trainName, trainNum]);
+  }, [map, lng, lat, trainName, trainNum, isActive, item, onClick]);
 
-  return null; // No JSX, since it's all DOM-based now
+  return null;
 };
 
 export default Marker;
