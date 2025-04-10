@@ -4,26 +4,19 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import Home from "./pages/Home";
 import Trains from "./pages/Trains";
 import Error from "./components/Error";
+import AppLayout from "./components/AppLayout";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <Home />,
-      errorElement: <Error />,
-    },
-    {
-      path: "/trains",
-      element: <Trains />,
-      errorElement: <Error />,
-    },
-  ],
+const router = createBrowserRouter([
   {
-    future: {
-      v7_relativeSplatPath: true,
-    },
-  }
-);
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "trains", element: <Trains /> },
+    ],
+  },
+]);
 
 function App() {
   return (
