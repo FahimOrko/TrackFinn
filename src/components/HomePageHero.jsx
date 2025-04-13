@@ -17,9 +17,14 @@ const HomePageHero = () => {
             Finland.
           </ParaText>
 
-          <Button to="/trains">
-            <p>See Current Trains</p>
-          </Button>
+          <div className="flex gap-6 flex-col w-full items-center md:flex-row">
+            <Button to="/all-trains">
+              <p>See All Trains</p>
+            </Button>
+            <Button to="/my-train">
+              <p>My Train</p>
+            </Button>
+          </div>
         </div>
 
         {/* Right Section: Image */}

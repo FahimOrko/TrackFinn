@@ -16,9 +16,11 @@ A web application that provides live tracking information for trains in Finland.
 
 - Home Page: Displays general information about the website with a full-height hero section, text, and an image. Users can click a button to navigate to the train details page.
 
-- Train Details Page:
+- All Trains Page:
 
   - Interactive map showing all currently running long-distance VR trains in Finland.
+
+- My Train Page:
 
   - Search functionality where users can enter a train number, type, and departure date to fetch full timetable and status.
 
