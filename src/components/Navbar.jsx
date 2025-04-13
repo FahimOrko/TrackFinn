@@ -33,14 +33,26 @@ const Navbar = () => {
         </motion.button>
         <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <NavLink
-            to="/trains"
+            to="/all-trains"
             className={({ isActive }) =>
               `p-3 tracking-wide rounded-md font-bold uppercase text-vrtextDark hover:bg-vrgreenHover hover:duration-300 hover:ease-in-out text-base md:text-lg ${
                 isActive && "bg-vrgreenDark"
               }`
             }
           >
-            Trains
+            All-Trains
+          </NavLink>
+        </motion.button>
+        <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <NavLink
+            to="/my-train"
+            className={({ isActive }) =>
+              `p-3 tracking-wide rounded-md font-bold uppercase text-vrtextDark hover:bg-vrgreenHover hover:duration-300 hover:ease-in-out text-base md:text-lg ${
+                isActive && "bg-vrgreenDark"
+              }`
+            }
+          >
+            My-Train
           </NavLink>
         </motion.button>
       </ul>
@@ -70,14 +82,24 @@ const Navbar = () => {
           Home
         </NavLink>
         <NavLink
-          to="/trains"
+          to="/all-trains"
           className={({ isActive }) =>
             `w-full text-center p-4 tracking-wide rounded-md font-bold uppercase text-vrtextDark hover:bg-vrgreenHover hover:duration-300 hover:ease-in-out text-lg ${
               isActive && "bg-vrgreenDark"
             }`
           }
         >
-          trains
+          All Trains
+        </NavLink>
+        <NavLink
+          to="/my-train"
+          className={({ isActive }) =>
+            `w-full text-center p-4 tracking-wide rounded-md font-bold uppercase text-vrtextDark hover:bg-vrgreenHover hover:duration-300 hover:ease-in-out text-lg ${
+              isActive && "bg-vrgreenDark"
+            }`
+          }
+        >
+          My Train
         </NavLink>
       </div>
     </header>

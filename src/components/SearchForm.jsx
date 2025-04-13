@@ -22,7 +22,7 @@ const SearchForm = () => {
       const formattedDate = values.date
         ? format(values.date, "dd/MM/yyyy")
         : "";
-      navigate(`/trains?trainNum=${values.trainNum}&date=${formattedDate}`);
+      navigate(`/my-train?trainNum=${values.trainNum}&date=${formattedDate}`);
       resetForm();
     },
   });

@@ -9,6 +9,16 @@ const IndividualTrain = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const trainNum = searchParams?.get("trainNum");
   const date = searchParams?.get("date");
+
+  if (!trainNum && !date)
+    return (
+      <section>
+        <main className="flex h-[70dvh] max-w-72 md:max-w-6xl mx-auto">
+          <SearchForm />
+        </main>
+      </section>
+    );
+
   return (
     <section>
       <main className="grid grid-rows-5 grid-cols-1 md:grid-cols-5 h-[110dvh] md:h-[70dvh] w-full">
@@ -30,14 +40,12 @@ const IndividualTrain = () => {
           id="train info"
           className="h-full w-full row-span-3 col-span-5 md:row-span-5 md:col-span-3 px-10 py-8 bg-vrgrayMid"
         >
-          {trainNum && date ? (
+          {trainNum && date && (
             <SingleTrainInfo
               trainNum={trainNum}
               date={date}
               setSearchParams={setSearchParams}
             />
-          ) : (
-            <SearchForm />
           )}
         </div>
       </main>

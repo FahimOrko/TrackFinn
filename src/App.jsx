@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Trains from "./pages/Trains";
 import Error from "./components/Error";
 import AppLayout from "./components/AppLayout";
+import MyTrain from "./pages/MyTrain";
 
 const router = createBrowserRouter(
   [
@@ -14,7 +15,8 @@ const router = createBrowserRouter(
       errorElement: <Error />,
       children: [
         { index: true, element: <Home /> },
-        { path: "trains", element: <Trains /> },
+        { path: "all-trains", element: <Trains /> },
+        { path: "my-train", element: <MyTrain /> },
       ],
     },
   ],

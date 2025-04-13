@@ -62,9 +62,11 @@ const SingleTrainMapChild = ({ newItem, lng, lat }) => {
   }, [mapIsLoaded, newItem, lng, lat]);
 
   return (
-    <>
-      <div className="h-full w-full map-container" ref={mapContainerRef} />
-    </>
+    <div className="h-full w-full px-10 py-10">
+      <div className="h-full w-full rounded-md shadow-sm border-8  border-vrgreenDark transition-all duration-300 focus:outline-none hover:ring hover:ring-vrgreenDark">
+        <div className="h-full w-full map-container" ref={mapContainerRef} />
+      </div>
+    </div>
   );
 };
 
