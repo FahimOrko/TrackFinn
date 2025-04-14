@@ -4,14 +4,16 @@ import useTrainData from "../services/getSingleTrain";
 import Spinner from "./Spinner";
 import SingleTrainDetails from "./SingleTrainDetails";
 import TrainNotFound from "./TrainNotFound";
+import { useNavigate } from "react-router-dom";
 
 const SingleTrainInfo = ({ trainNum, date, setSearchParams }) => {
   const { data, isLoading, isError } = useTrainData(date, parseInt(trainNum));
 
   const trainData = data;
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    setSearchParams({ trainNum: "", date: "" });
+    navigate(-1);
   };
 
   if (isLoading)
