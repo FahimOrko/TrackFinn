@@ -15,9 +15,9 @@ const SingleTrainMap = ({ trainNum, date }) => {
     );
 
   if (!isLoading && !isError) {
-    const { trainNumber, trainType, trainLocations } = data;
+    const { trainNumber, trainType, trainLocations, runningCurrently } = data;
 
-    if (!trainLocations)
+    if (!trainLocations || !runningCurrently)
       return (
         <TrainNotAvaiable>Train is currently not running</TrainNotAvaiable>
       );
