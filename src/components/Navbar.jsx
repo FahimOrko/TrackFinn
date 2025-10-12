@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="relative flex justify-between items-center px-6 py-8 md:px-32 bg-vrgrayDark drop-shadow-md text-vrtextDark transition-all z-50">
+    <header className="relative flex justify-between items-center px-6 py-8 md:px-32 bg-black drop-shadow-md text-vrtextDark transition-all z-50">
       {/* logo  */}
       <NavLink
         to="/"

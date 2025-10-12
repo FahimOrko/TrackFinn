@@ -38,7 +38,7 @@ const IndividualTrain = () => {
         </div>
         <div
           id="train info"
-          className="h-full w-full row-span-3 col-span-5 md:row-span-5 md:col-span-3 px-10 py-8 bg-vrgrayMid"
+          className="h-full w-full row-span-3 col-span-5 md:row-span-5 md:col-span-3 px-10 py-8 bg-black/90"
         >
           {trainNum && date && (
             <SingleTrainInfo
