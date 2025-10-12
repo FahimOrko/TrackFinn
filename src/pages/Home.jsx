@@ -4,7 +4,7 @@ import HomePageHero from "../components/HomePageHero";
 
 const Home = () => {
   return (
-    <section className="h-[100dvh] w-full bg-vrgrayMid">
+    <section className="h-[100dvh] w-full bg-black/90">
       <Navbar />
       <HomePageHero />
     </section>

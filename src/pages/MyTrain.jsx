@@ -5,7 +5,7 @@ import IndividualTrain from "../components/IndividualTrain";
 
 const MyTrain = () => {
   return (
-    <section className="min-h-fit w-full bg-vrgrayMid">
+    <section className="min-h-fit w-full bg-black/90">
       <Navbar />
       <TrainPageHeroSecond />
       <IndividualTrain />
